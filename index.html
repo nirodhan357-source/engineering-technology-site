@@ -90,11 +90,11 @@ function route(){
  }
 }
 addEventListener('hashchange',route);route();
-const motionCard=[...document.querySelectorAll('.lc')].find(el=>el.querySelector('h3')?.textContent.trim()==='චලන හා බල සම්ප්‍රේෂණය');
-if(motionCard){
+const motionCard=[...document.querySelectorAll('#g12 .lc')].find(el=>el.querySelector('em')?.textContent.trim()==='08');
+if(motionCard&&motionCard.tagName!=='A'){
  const link=document.createElement('a');
  link.className='lc on';
- link.href='motion.html';
+ link.href='./motion.html';
  link.innerHTML=motionCard.innerHTML.replace('<span class="tag">ඉක්මනින් එකතු වේ</span>','<span class="go">පාඩම විවෘත කරන්න →</span>');
  motionCard.replaceWith(link);
 }
