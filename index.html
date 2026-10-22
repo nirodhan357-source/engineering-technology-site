@@ -1131,7 +1131,6 @@ body.site-locked > *:not(#passkey-overlay) {
 </style>
 </head><body class="site-locked">
 <div id="passkey-overlay" style="position:fixed;inset:0;z-index:999999;background:rgba(10,22,34,0.96);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:16px;font-family:'Noto Sans Sinhala','Iskoola Pota','Nirmala UI',system-ui,sans-serif;">
-  <script>try{if(localStorage.getItem('et_site_auth')==='ok'||sessionStorage.getItem('et_site_auth')==='ok'){document.getElementById('passkey-overlay').style.display='none';}}catch(e){}</script>
   <div style="background:#172533;border:2px solid #2ba0b8;box-shadow:0 20px 50px rgba(0,0,0,0.6);border-radius:16px;max-width:440px;width:100%;padding:28px 24px;text-align:center;color:#fff;">
     <div style="font-size:2.8rem;margin-bottom:12px;">🔐</div>
     <h2 style="margin:0 0 8px;font-size:1.35rem;color:#f0f6fc;font-weight:700;">ආරක්ෂිත පිවිසුම (Security Access)</h2>
@@ -1157,16 +1156,11 @@ body.site-locked > *:not(#passkey-overlay) {
 <script>
 (function(){
   var PK = "NORO00@@";
-  var STORAGE_KEY = "et_site_auth";
   window.verifySitePasskey = function(){
     var input = document.getElementById("site-passkey-input");
     var err = document.getElementById("passkey-error");
     if(!input) return;
     if(input.value === PK){
-      try {
-        localStorage.setItem(STORAGE_KEY, "ok");
-        sessionStorage.setItem(STORAGE_KEY, "ok");
-      } catch(e){}
       var overlay = document.getElementById("passkey-overlay");
       if(overlay){
         overlay.style.transition = "opacity 0.3s ease";
@@ -1195,23 +1189,11 @@ body.site-locked > *:not(#passkey-overlay) {
     }
   };
   window.lockSite = function(){
-    try {
-      localStorage.removeItem(STORAGE_KEY);
-      sessionStorage.removeItem(STORAGE_KEY);
-    } catch(e){}
     location.reload();
   };
   function initPasskey(){
-    var auth = false;
-    try {
-      if(localStorage.getItem(STORAGE_KEY) === "ok" || sessionStorage.getItem(STORAGE_KEY) === "ok"){
-        auth = true;
-      }
-    } catch(e){}
     var overlay = document.getElementById("passkey-overlay");
-    if(auth && overlay){
-      overlay.remove(); document.body.classList.remove('site-locked');
-    } else if(overlay){
+    if(overlay){
       overlay.style.display = "flex";
       setTimeout(function(){
         var inp = document.getElementById("site-passkey-input");
