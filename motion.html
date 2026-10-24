@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="si">
 <head>
 <meta charset="utf-8">
@@ -13,6 +13,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.75 "Noto San
 header{background:var(--navy);color:#fff;padding:18px 16px;border-bottom:3px solid var(--gold)}
 header .in,main{max-width:920px;margin:auto}
 header a{display:inline-block;color:#fff;text-decoration:none;font-weight:700;margin-bottom:8px}
+header a:hover{text-decoration:underline}
 header h1{font-size:clamp(1.4rem,5vw,2rem);line-height:1.4;margin:0}
 header p{margin:4px 0 0;color:#d4e3f3}
 main{padding:24px 16px 48px}
@@ -29,15 +30,15 @@ footer{text-align:center;color:var(--mute);padding:0 16px 24px;font-size:.9rem}
 </head>
 <body>
 <header><div class="in">
-<a href="index.html#g12">← 12 වසර පාඩම් වෙත</a>
+<a href="index.html#g12" onclick="if(window.location.protocol==='file:'&&!window.location.href.includes('index.html')){this.href='Final.html#g12';}">← 12 වසර පාඩම් වෙත</a>
 <h1>චලනය හා බල සම්ප්‍රේෂණය</h1>
 <p>12 ශ්‍රේණිය ඉංජිනේරු තාක්ෂණවේදය · 08 වන පාඩම</p>
 </div></header>
 <main>
 <h2>පාඩමේ ප්‍රධාන කොටස්</h2>
-<p class="intro">අවශ්‍ය කොටස තෝරාගෙන එහි අන්තර්ගතය, සිමියුලේෂන් හෝ ගණකය භාවිතා කරන්න.</p>
+<p class="intro">අවශ්‍ය කොටස තෝරාගෙන එහි අන්තර්ගතය, සිමියුලේෂන් හෝ ගණකය භාවිත කරන්න.</p>
 <div class="topics">
-<a class="topic" href="motion-power.html">
+<a class="topic" href="motion-power.html?v=2">
 <h3>චලනය හා බල සම්ප්‍රේෂණය – සිමියුලේෂන් පාඩම</h3>
 <p>චලිත ආකාර, චලිත පරිවර්තන සහ බල සම්ප්‍රේෂණ පද්ධති පිළිබඳ විස්තර සහ ක්‍රියාත්මක කළ හැකි සිමියුලේෂන්.</p>
 <span class="open">පාඩම විවෘත කරන්න →</span>
